@@ -9,6 +9,7 @@
 .local
 .macromedia
 .pki
+.ssh/*
 .viminfo
 Documents
 Downloads
