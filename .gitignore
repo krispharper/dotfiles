@@ -1,0 +1,15 @@
+.Xauthority
+.adobe
+.bash_history
+.cache
+.config/chromium/*
+.config/pulse/*
+.dbus
+.lesshst
+.local
+.macromedia
+.pki
+.viminfo
+Documents
+Downloads
+
