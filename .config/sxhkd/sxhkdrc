@@ -9,7 +9,11 @@ alt + ctrl + Escape
 alt + w
 	bspc window -c
 
-alt + t
+# Close window
+alt + shift + w
+	bspc window -k
+
+alt + m
 	bspc desktop -l next
 
 # Equalize areas
@@ -17,7 +21,7 @@ alt + b
 	bspc desktop -B
 
 # Toggle floating and fullscreen modes
-alt + {s,f}
+alt + {_,shift +} f
 	bspc window -t {floating,fullscreen}
 
 # Switch to last window and desktop
@@ -34,11 +38,8 @@ alt + {o,i}
 	bspc window {older,newer} -f; \
 	bspc control --record-history on
 
-alt + y
-	bspc window -w last.manual
-
 # Swap with largest window
-alt + m
+alt + y
 	bspc window -s biggest
 
 # Focus and swap with nearby windows
@@ -53,13 +54,13 @@ alt + {_,shift + }c
 alt + {comma,period}
 	bspc desktop -C {backward,forward}
 
-# Cycle through desktops
-alt + bracket{left,right}
-	bspc desktop -f {prev,next}
+# Cycle through desktops within one monitor
+#alt + bracket{left,right}
+	#bspc desktop -f {prev,next}
 
-# Preselect a splitting area of the current window
-alt + super + {h,j,k,l}
-	bspc window -p {left,down,up,right}
+# Select a splitting area and move a window into it
+alt + super + {_,shift + }{h,j,k,l}
+	bspc window -{p,w} {left,down,up,right}
 
 # Cancel preselection of current window or all windows in the desktop
 alt + super + {_,shift + }space
@@ -67,16 +68,42 @@ alt + super + {_,shift + }space
 
 # Make windows larger
 alt + ctrl + {h,j,k,l}
-	bspc window -e {left -10,down +10,up -10,right +10}
+	bspc window -e {left -20,down +20,up -20,right +20}
 
 # Make windows smaller
 alt + ctrl + shift + {h,j,k,l}
-	bspc window -e {right -10,up +10,down -10,left +10}
+	bspc window -e {right -20,up +20,down -20,left +20}
 
+# Change window gap
+alt + {minus, equal}
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
+
+# Move floating windows
+alt + {Left,Right,Up,Down}
+	xdo move {-x -20,-x +20,-y -20,-y +20}
+
+# Resize floating windows
+alt + shift + {Left,Right,Up,Down}
+	xdo resize {-w -20,-w +20,-h -20,-h +20}
+
+# Change desktop padding
+alt + {_, shift} + bracketright
+	bspc config -d focused right_padding $((`bspc config -d focused right_padding` {+,-} 20 ))
+
+alt + {_, shift} + bracketleft
+	bspc config -d focused left_padding $((`bspc config -d focused left_padding` {+,-} 20 ))
+
+ctrl + {_, shift} + bracketright
+	bspc config -d focused bottom_padding $((`bspc config -d focused bottom_padding` {+,-} 20 ))
+
+ctrl + {_, shift} + bracketleft
+	bspc config -d focused top_padding $((`bspc config -d focused top_padding` {+,-} 20 ))
+
+# Set window split ratio
 alt + ctrl + {1-9}
 	bspc window -r 0.{1-9}
 
-# Move window to numbered desktop
+# Move focus or window to numbered desktop
 alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,window -d} ^{1-9,10}
 

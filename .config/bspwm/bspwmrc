@@ -1,7 +1,7 @@
 #! /bin/sh
 
-bspc monitor DVI-I-1 -d I II III IV V
-bspc monitor DVI-I-2 -d VI VII VIII IX X
+bspc monitor DVI-I-1 -n 0 -d alpha beta
+bspc monitor DVI-I-2 -n 1 -d gamma delta
 
 bspc config border_width        2
 bspc config window_gap          12
