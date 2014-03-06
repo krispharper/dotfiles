@@ -79,11 +79,11 @@ alt + {minus, equal}
 	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
 
 # Move floating windows
-alt + {Left,Right,Up,Down}
+alt + shift + {Left,Right,Up,Down}
 	xdo move {-x -20,-x +20,-y -20,-y +20}
 
 # Resize floating windows
-alt + shift + {Left,Right,Up,Down}
+alt + ctrl + {Left,Right,Up,Down}
 	xdo resize {-w -20,-w +20,-h -20,-h +20}
 
 # Change desktop padding

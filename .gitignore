@@ -4,6 +4,10 @@
 .cache
 .config/chromium/*
 .config/pulse/*
+.config/Trolltech.conf
+.config/dconf/*
+.config/transmission/*
+.config/vlc/*
 .dbus
 .lesshst
 .local

@@ -1,0 +1,3 @@
+URxvt*.depth:	32
+URxvt*.background:	[95]#000000
+URxvt*.scrollBar:	false
