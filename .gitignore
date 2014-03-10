@@ -3,11 +3,13 @@
 .bash_history
 .cache
 .config/chromium/*
-.config/pulse/*
-.config/Trolltech.conf
 .config/dconf/*
+.config/pulse/*
+.config/Thunar/*
 .config/transmission/*
+.config/Trolltech.conf
 .config/vlc/*
+.config/xfce4/*
 .dbus
 .lesshst
 .local
@@ -17,4 +19,5 @@
 .viminfo
 Documents
 Downloads
-
+Pictures
+Videos
