@@ -46,6 +46,14 @@ alt + y
 alt + {_,shift + }{h,j,k,l}
 	bspc window -{f,s} {left,down,up,right}
 
+# Focus selected monitor
+super + {h,j,k,l}
+    bspc {monitor -f} {left,up,down,right}
+
+# Move window to selected monitor
+super + shift + {h,j,k,l}
+    bspc window -m {left,up,down,right} && bspc window -f last
+
 # Circulate focus within desktop
 alt + {_,shift + }c
 	bspc window -f {next,prev}
