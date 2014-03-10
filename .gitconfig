@@ -1,3 +1,5 @@
 [user]
 	email = kris.p.harper@gmail.com
 	name = Kris Harper
+[core]
+	editor = vim
