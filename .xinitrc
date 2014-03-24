@@ -17,7 +17,9 @@ xset fp rehash
 # Load .Xresources
 xrdb ~/.Xresources
 
-#panel &
+compton -Cc
+
+panel dzen2 &
 
 plank &
 
