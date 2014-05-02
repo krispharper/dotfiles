@@ -17,10 +17,16 @@ xset fp rehash
 # Load .Xresources
 xrdb ~/.Xresources
 
+# Start xbindkeys
+xbindkeys
+
+# Start the panel
 panel bar &
 
+# Start plank
 plank &
 
+# Start compton for transparency
 compton -Cc &
 
 # Start up bspwm
