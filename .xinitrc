@@ -17,11 +17,11 @@ xset fp rehash
 # Load .Xresources
 xrdb ~/.Xresources
 
-compton -Cc
-
-panel dzen2 &
+panel bar &
 
 plank &
+
+compton -Cc &
 
 # Start up bspwm
 sxhkd &
