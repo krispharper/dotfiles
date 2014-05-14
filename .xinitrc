@@ -26,6 +26,9 @@ panel bar &
 # Start plank
 plank &
 
+# Start xscreensaver
+xscreensaver -no-splash &
+
 # Start compton for transparency
 compton -Cc &
 
