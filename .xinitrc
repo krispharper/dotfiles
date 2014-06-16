@@ -21,7 +21,7 @@ xrdb ~/.Xresources
 xbindkeys
 
 # Start the panel
-panel bar &
+panel dzen2 &
 
 # Start plank
 plank &

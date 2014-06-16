@@ -7,7 +7,7 @@ font_size=11
 
 . panel_colors
 
-screen_width=$(sres -W)
+screen_width=$(($(sres -W) / 2))
 NORMIFS=$IFS
 FIELDIFS=':'
 PADDING='  '
