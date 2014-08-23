@@ -10,3 +10,14 @@ PS1='[\u@\h \W]\$ '
 export EDITOR=vim
 
 . /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+venv() {
+    local activate=~/.python/$1/bin/activate
+    if [ -e "$activate" ] ; then
+        source "$activate"
+    else
+        echo "Error: $activate not found"
+    fi
+}
+
+venv27() { venv 27 ; }
