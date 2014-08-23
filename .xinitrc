@@ -26,6 +26,9 @@ panel dzen2 &
 # Start plank
 plank &
 
+# Start unclutter
+unclutter &
+
 # Start xscreensaver
 xscreensaver -no-splash &
 
