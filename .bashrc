@@ -8,6 +8,8 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 export EDITOR=vim
+[ -z "$TMUX" ] && export TERM=xterm-256color
+export STEAM_FRAME_FORCE_CLOSE=1
 
 . /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
@@ -21,3 +23,5 @@ venv() {
 }
 
 venv27() { venv 27 ; }
+
+

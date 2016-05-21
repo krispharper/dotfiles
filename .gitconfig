@@ -1,5 +1,18 @@
+[alias]
+	s = status -s
+    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 [user]
 	email = kris.p.harper@gmail.com
 	name = Kris Harper
+[diff]
+	tool = bc3
+[difftool]
+	bc3 = trustExitCode
+	prompt = false
+[merge]
+	tool = bc3
+[mergetool]
+	bc3 = trustExitCode
+	prompt = false
 [core]
-	editor = vim
+	excludesfile = ~/.gitignore
