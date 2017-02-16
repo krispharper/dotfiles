@@ -24,4 +24,5 @@ venv() {
 
 venv27() { venv 27 ; }
 
-
+alias vpn='vpn2'
+alias ll='ls -la'
