@@ -11,7 +11,12 @@ export EDITOR=vim
 [ -z "$TMUX" ] && export TERM=xterm-256color
 export STEAM_FRAME_FORCE_CLOSE=1
 
-. /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+. /home/kris/.local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+
+WORKON_HOME=/home/kris/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+eval $(thefuck --alias)
 
 venv() {
     local activate=~/.python/$1/bin/activate
@@ -23,6 +28,16 @@ venv() {
 }
 
 venv27() { venv 27 ; }
+
+bpython() {
+    if test -n "$VIRTUAL_ENV"
+    then
+        PYTHONPATH="$(python -c 'import sys; print(":".join(sys.path))')" \
+        command bpython "$@"
+    else
+        command bpython "$@"
+    fi
+}
 
 alias vpn='vpn2'
 alias ll='ls -la'
