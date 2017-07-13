@@ -16,3 +16,4 @@
 	prompt = false
 [core]
 	excludesfile = ~/.gitignore
+	whitespace = cr-at-eol
