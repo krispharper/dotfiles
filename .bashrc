@@ -118,6 +118,7 @@ fi
 
 unset MAILCHECK
 export EDITOR=vim
+alias ll='ls -la'
 
 . /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
@@ -156,4 +157,3 @@ export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
 # Remote convenience functions
 alias vpn='vpn2'
-alias ll='ls -la'

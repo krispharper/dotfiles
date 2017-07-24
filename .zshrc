@@ -26,6 +26,7 @@ zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;
 
 unset MAILCHECK
 export EDITOR=vim
+alias ll='ls -la'
 
 # Add Powerline
 . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
@@ -61,3 +62,6 @@ export TTC_CONSUMER_KEY=No7isIDRwowm0rWrNzGBQeVsZ
 export TTC_CONSUMER_SECRET=LCQjkUp1UNmGRwkR3mA2Ers7YVVigNAc5oGW57gWoFodzz3O6r
 export TTC_ACCESS_TOKEN=804131787999940608-E9rsURg6mVeeFfUwU0q4Jd0joQvzTcv
 export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
+
+# Remote convenience functions
+alias vpn='vpn2'
