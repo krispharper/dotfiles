@@ -120,7 +120,7 @@ unset MAILCHECK
 export EDITOR=vim
 alias ll='ls -la'
 
-. ~/.local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
+. ~/.local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
 
 stty -ixon
 
@@ -128,7 +128,7 @@ eval $(thefuck --alias)
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=~/.virtualenvs
-. /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+. /usr/bin/virtualenvwrapper.sh
 
 venv() {
     mkvirtualenv --python=$(which python3) $1
