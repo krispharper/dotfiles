@@ -1,3 +1,4 @@
+plugins=(docker pylint tmux)
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
@@ -25,16 +26,20 @@ autoload -U compinit && compinit   # load + start completion
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 
 unset MAILCHECK
+export ZSH_TMUX_AUTOSTART=true
 export EDITOR=vim
 alias ll='ls -la'
 
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
 # Add Powerline
-. ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+. ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Add virtualenv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh
 
 venv() {
     mkvirtualenv --python=$(which python3) $1
