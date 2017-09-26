@@ -32,6 +32,8 @@ alias ll='ls -la'
 
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # Add Powerline
 . ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
