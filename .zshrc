@@ -30,8 +30,6 @@ export ZSH_TMUX_AUTOSTART=true
 export EDITOR=vim
 alias ll='ls -la'
 
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
@@ -71,4 +69,3 @@ export TTC_ACCESS_TOKEN=804131787999940608-E9rsURg6mVeeFfUwU0q4Jd0joQvzTcv
 export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
 # Remote convenience functions
-alias vpn='vpn2'
