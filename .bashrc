@@ -157,3 +157,5 @@ export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
 # Remote convenience functions
 alias vpn='vpn2'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -69,3 +69,5 @@ export TTC_ACCESS_TOKEN=804131787999940608-E9rsURg6mVeeFfUwU0q4Jd0joQvzTcv
 export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
 # Remote convenience functions
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
