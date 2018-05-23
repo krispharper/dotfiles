@@ -25,6 +25,7 @@ setopt CDABLE_VARS                 # expand the expression (allows 'cd -2/tmp')
 autoload -U compinit && compinit   # load + start completion
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 
+setopt interactivecomments
 unset MAILCHECK
 export ZSH_TMUX_AUTOSTART=true
 export EDITOR=vim
