@@ -39,23 +39,16 @@ bindkey '^R' history-incremental-search-backward
 # Add Powerline
 . ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
-# Add virtualenv
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-
-venv() {
-    mkvirtualenv --python=$(which python3) $1
-}
+export PATH="/opt/conda/bin:$PATH"
 
 bpython() {
-    if test -n "$VIRTUAL_ENV"
+    if test -n "$CONDA_PREFIX"
     then
-        if [ ! -f "$VIRTUAL_ENV/bin/bpython" ];
+        if [ ! -f "$CONDA_PREFIX/bin/bpython" ];
         then
             pip install bpython
         fi
-        command "$VIRTUAL_ENV/bin/bpython" "$@"
+        command "$CONDA_PREFIX/bin/bpython" "$@"
     else
         command bpython "$@"
     fi
