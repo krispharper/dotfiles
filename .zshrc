@@ -37,10 +37,9 @@ stty -ixon
 unset MAILCHECK
 export ZSH_TMUX_AUTOSTART=true
 export EDITOR=vim
-alias ll='ls -la'
 
-bindkey -v
 bindkey '^R' history-incremental-search-backward
+bindkey '^[[Z' reverse-menu-complete
 
 # Add Powerline
 . ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
@@ -61,6 +60,7 @@ bpython() {
     fi
 }
 
+eval $(thefuck --alias)
 
 # Tiny Care Terminal settings
 export TTC_REPOS=/home/kris/Development
@@ -73,4 +73,12 @@ export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
 # Remote convenience functions
 
+# Set up fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH=$PATH:/home/kris/Development/fzf/bin
+export FZF_DEFAULT_COMMAND='ag --ignore node_modules --ignore .tox -g ""'
+
+# Aliases
+alias ll='ls -la'
+alias tig='tig --all'
+alias dc="docker system prune -af --volumes"
