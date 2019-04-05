@@ -4,7 +4,7 @@
     rn = log --format=format:'* %s %C(bold yellow)%d'
     b = branch -avv
     tagv = tag -l -n9
-    up = !git checkout uat && git pull upstream uat && git checkout master && git pull upstream master && git checkout dev && git pull upstream dev && git push --all
+    up = !git checkout uat && git pull upstream uat && git checkout master && git pull upstream master && git checkout dev && git pull upstream dev && git push --all && git fetch --tags upstream
 [user]
 	email = kris.harper@stoneridgeam.com
 	name = Kris Harper
