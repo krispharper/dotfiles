@@ -26,8 +26,14 @@ autoload -U compinit && compinit   # load + start completion
 zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;5;12'
 
 setopt interactivecomments
+
+# Conda completions
+fpath+=/home/kris/Development/conda-zsh-completion
+compinit conda
+
 # Prevent Ctrl-S from freezing vim
 stty -ixon
+
 unset MAILCHECK
 export ZSH_TMUX_AUTOSTART=true
 export EDITOR=vim
@@ -39,10 +45,11 @@ bindkey '^R' history-incremental-search-backward
 # Add Powerline
 . ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
-export PATH="/opt/conda/bin:$PATH"
+# Add conda
+. /opt/conda/etc/profile.d/conda.sh
 
 bpython() {
-    if test -n "$CONDA_PREFIX"
+    if test -n "$CONDA_DEFAULT_ENV"
     then
         if [ ! -f "$CONDA_PREFIX/bin/bpython" ];
         then
