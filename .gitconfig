@@ -4,10 +4,10 @@
     rn = log --format=format:'* %s %C(bold yellow)%d'
     b = branch -avv
     tagv = tag -l -n9
-    up = !bash -c 'git checkout master && git pull upstream master \
-         && ([[ $(git branch --list uat) ]] && git checkout uat && git pull upstream uat \
-         || [[ $(git branch --list dev) ]] && git checkout dev && git pull upstream dev) \
-         && git push --all github && git fetch --tags upstream'
+    up = "!bash -c 'git checkout master && git pull upstream master; \
+         ([[ $(git branch --list uat) ]] && git checkout uat && git pull upstream uat \
+         && [[ $(git branch --list dev) ]] && git checkout dev && git pull upstream dev); \
+         git push --all github && git fetch --tags upstream'"
 [user]
 	email = kris.harper@stoneridgeam.com
 	name = Kris Harper
