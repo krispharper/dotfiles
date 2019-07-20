@@ -155,7 +155,4 @@ export TTC_CONSUMER_SECRET=LCQjkUp1UNmGRwkR3mA2Ers7YVVigNAc5oGW57gWoFodzz3O6r
 export TTC_ACCESS_TOKEN=804131787999940608-E9rsURg6mVeeFfUwU0q4Jd0joQvzTcv
 export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
-# Remote convenience functions
-alias vpn='vpn2'
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
