@@ -73,7 +73,7 @@ export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
 # Set up fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=$PATH:/home/kris/Development/fzf/bin
+export PATH=$PATH:/home/kris/.local/bin:/home/kris/Development/fzf/bin
 export FZF_DEFAULT_COMMAND='ag --ignore node_modules --ignore .tox -g ""'
 
 # Aliases
