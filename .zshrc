@@ -1,4 +1,4 @@
-plugins=(docker pylint tmux)
+plugins=(docker pylint tmux fzf)
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
@@ -33,6 +33,7 @@ compinit conda
 
 # Prevent Ctrl-S from freezing vim
 stty -ixon
+export PATH=$PATH:~/Library/python/3.7/bin
 
 unset MAILCHECK
 export ZSH_TMUX_AUTOSTART=true
@@ -41,8 +42,10 @@ export EDITOR=vim
 bindkey '^R' history-incremental-search-backward
 bindkey '^[[Z' reverse-menu-complete
 
+setopt interactivecomments
+
 # Add Powerline
-. ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+. ~/Library/Python/3.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Add conda
 . /opt/conda/etc/profile.d/conda.sh
@@ -60,8 +63,6 @@ bpython() {
     fi
 }
 
-eval $(thefuck --alias)
-
 # Tiny Care Terminal settings
 export TTC_REPOS=/home/kris/Development
 export TTC_WEATHER=10022
@@ -72,11 +73,17 @@ export TTC_ACCESS_TOKEN=804131787999940608-E9rsURg6mVeeFfUwU0q4Jd0joQvzTcv
 export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
 
 # Set up fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=$PATH:/home/kris/.local/bin:/home/kris/Development/fzf/bin
-export FZF_DEFAULT_COMMAND='ag --ignore node_modules --ignore .tox -g ""'
+export PATH=$PATH:/usr/local/bin/fzf
+export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
 
 # Aliases
 alias ll='ls -la'
 alias tig='tig --all'
 alias dc="docker system prune -af --volumes"
+
+# Alias to MacVim
+alias vim='/Applications/MacVim.App/Contents/MacOS/Vim'
+
+# Setup nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
