@@ -4,6 +4,7 @@
     rn = log --format=format:'* %s %C(bold yellow)%d'
     b = branch -avv
     tagv = tag -l -n9
+    fc = !git commit -a --amend && git push -f
     up = "!bash -c 'git checkout master && git pull upstream master; \
          ([[ $(git branch --list uat) ]] && git checkout uat && git pull upstream uat \
          && [[ $(git branch --list dev) ]] && git checkout dev && git pull upstream dev); \
@@ -29,3 +30,6 @@
 	default = simple
 [pull]
 	rebase = true
+[cinnabar]
+	version-check = 1570625967
+	helper = /Users/kris.harper/Documents/Development/Firefox/.mozbuild/git-cinnabar/git-cinnabar-helper
