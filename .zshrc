@@ -4,7 +4,7 @@ plugins=(docker pylint tmux fzf)
 zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' matcher-list ''
 zstyle ':completion:*' max-errors 1
-zstyle :compinstall filename '/home/kris/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -28,7 +28,7 @@ zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;
 setopt interactivecomments
 
 # Conda completions
-fpath+=/home/kris/Development/conda-zsh-completion
+fpath+=~/Development/conda-zsh-completion
 compinit conda
 
 # Prevent Ctrl-S from freezing vim
@@ -44,8 +44,8 @@ bindkey '^[[Z' reverse-menu-complete
 
 setopt interactivecomments
 
-# Add Powerline
-. ~/Library/Python/3.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+# Add local settings
+source ~/.zshrc.local
 
 # Add conda
 . /opt/conda/etc/profile.d/conda.sh
@@ -63,15 +63,6 @@ bpython() {
     fi
 }
 
-# Tiny Care Terminal settings
-export TTC_REPOS=/home/kris/Development
-export TTC_WEATHER=10022
-export TTC_CELSIUS=false
-export TTC_CONSUMER_KEY=No7isIDRwowm0rWrNzGBQeVsZ
-export TTC_CONSUMER_SECRET=LCQjkUp1UNmGRwkR3mA2Ers7YVVigNAc5oGW57gWoFodzz3O6r
-export TTC_ACCESS_TOKEN=804131787999940608-E9rsURg6mVeeFfUwU0q4Jd0joQvzTcv
-export TTC_ACCESS_TOKEN_SECRET=rsYcEtTQYxdu6QAge0Fym9bQ5BXvEXXDmHQqWUuAdlKmj
-
 # Set up fzf
 export PATH=$PATH:/usr/local/bin/fzf
 export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
@@ -80,9 +71,6 @@ export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
 alias ll='ls -la'
 alias tig='tig --all'
 alias dc="docker system prune -af --volumes"
-
-# Alias to MacVim
-alias vim='/Applications/MacVim.App/Contents/MacOS/Vim'
 
 # Setup nvm
 export NVM_DIR="$HOME/.nvm"
