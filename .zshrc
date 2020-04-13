@@ -47,8 +47,17 @@ setopt interactivecomments
 # Add local settings
 source ~/.zshrc.local
 
+# Add Promptline
+. ~/.promptline.sh
+
 # Add conda
 . /opt/conda/etc/profile.d/conda.sh
+
+recon() {
+    CONDA_ENVIRONMENT=${1-$CONDA_DEFAULT_ENV}
+    echo "Recreating conda environment $CONDA_ENVIRONMENT"
+    conda deactivate && conda env remove -n $CONDA_ENVIRONMENT -y && conda env create -f environment.yml && conda env update -f environment-dev.yml && conda activate $CONDA_ENVIRONMENT
+}
 
 bpython() {
     if test -n "$CONDA_DEFAULT_ENV"
