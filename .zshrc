@@ -33,7 +33,6 @@ compinit conda
 
 # Prevent Ctrl-S from freezing vim
 stty -ixon
-export PATH=$PATH:~/Library/python/3.7/bin
 
 unset MAILCHECK
 export ZSH_TMUX_AUTOSTART=true
@@ -46,9 +45,6 @@ setopt interactivecomments
 
 # Add local settings
 source ~/.zshrc.local
-
-# Add Promptline
-. ~/.promptline.sh
 
 # Add conda
 . /opt/conda/etc/profile.d/conda.sh
@@ -84,3 +80,27 @@ alias dc="docker system prune -af --volumes"
 # Setup nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Add Promptline
+vim_ins_mode="INSERT"
+vim_cmd_mode="NORMAL"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  __promptline
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+  vim_mode=$vim_ins_mode
+}
+zle -N zle-line-finish
+
+function TRAPINT() {
+  vim_mode=$vim_ins_mode
+  return $(( 128 + $1 ))
+}
+
+source ~/.promptline.sh
