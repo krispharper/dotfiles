@@ -73,6 +73,7 @@ bpython() {
 alias ll='ls -la'
 alias tig='tig --all'
 alias dc="docker system prune -af --volumes"
+alias k="kubectl"
 
 # Setup nvm
 export NVM_DIR="$HOME/.nvm"
