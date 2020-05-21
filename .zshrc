@@ -27,13 +27,14 @@ zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;
 
 setopt interactivecomments
 
-# Conda completions
-fpath+=~/Development/conda-zsh-completion
-compinit conda
+# Completions
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
 
 # Prevent Ctrl-S from freezing vim
 stty -ixon
 
+# Set defaults
 unset MAILCHECK
 export ZSH_TMUX_AUTOSTART=true
 export EDITOR=vim
@@ -44,7 +45,7 @@ bindkey '^[[Z' reverse-menu-complete
 setopt interactivecomments
 
 # Add local settings
-source ~/.zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # Add conda
 . /opt/conda/etc/profile.d/conda.sh
@@ -67,10 +68,6 @@ bpython() {
         command bpython "$@"
     fi
 }
-
-# Set up fzf
-export PATH=$PATH:/usr/local/bin/fzf
-export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
 
 # Aliases
 alias ll='ls -la'
@@ -104,3 +101,8 @@ function TRAPINT() {
 }
 
 source ~/.promptline.sh
+
+# Set up fzf
+export PATH=$PATH:/usr/local/bin/fzf
+export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
