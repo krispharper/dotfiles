@@ -75,6 +75,40 @@ alias tig='tig --all'
 alias dc="docker system prune -af --volumes"
 alias k="kubectl"
 
+# Add git functions
+function gc() {
+    base="master"
+
+    if [[ $(git branch --format="%(refname:short)" | grep dev) ]]; then
+        base="dev"
+    fi
+
+    echo "Base branch is $base"
+
+    # Go through each branch
+    for b in $(git branch --format="%(refname:short)" | grep -vE "(master|uat|dev)"); do
+        # git cherry prefixes each commit with "-" if it's included, and "+" if it isn't, so check if there are no "+" lines
+
+        if [[ ! $(git cherry "upstream/$base" $b | grep "^+") ]]; then
+            git branch -D $b && git push --delete github $b
+        else
+            echo "Not deleting $b because it hasn't been rebased into $base"
+        fi
+    done
+
+    echo "Pruning remotes"
+    git remote prune upstream github
+}
+
+function gcu() {
+    if $(git diff-index --quiet HEAD); then
+        git up
+        gc
+    else
+        echo "Not updating because of uncommitted changes."
+    fi
+}
+
 # Setup nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
