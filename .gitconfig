@@ -33,3 +33,5 @@
 [cinnabar]
 	version-check = 1570625967
 	helper = /Users/kris.harper/Documents/Development/Firefox/.mozbuild/git-cinnabar/git-cinnabar-helper
+[hub]
+	host = github.stoneridge.am
