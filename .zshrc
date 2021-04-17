@@ -39,8 +39,11 @@ unset MAILCHECK
 export ZSH_TMUX_AUTOSTART=true
 export EDITOR=vim
 
+# History
 bindkey '^R' history-incremental-search-backward
 bindkey '^[[Z' reverse-menu-complete
+setopt inc_append_history
+setopt hist_ignore_dups
 
 setopt interactivecomments
 
@@ -77,9 +80,14 @@ alias k="kubectl"
 
 # Add git functions
 function gc() {
+    if [[ -z $(git remote | grep upstream) ]]; then
+        echo "No upstream remote found"
+        return
+    fi
+
     base="master"
 
-    if [[ $(git branch --format="%(refname:short)" | grep dev) ]]; then
+    if [[ $(git branch --format="%(refname:short)" | grep "^dev$") ]]; then
         base="dev"
     fi
 
