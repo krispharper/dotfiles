@@ -1,3 +1,5 @@
 .tmux/resurrect
 .tmux/plugins
 *.swp
+*.DS_Store
+get_rds_token.sh
