@@ -24,9 +24,12 @@
 [mergetool]
 	bc3 = trustExitCode
 	prompt = false
+[interactive]
+    diffFilter = delta --color-only
 [core]
 	excludesfile = ~/.gitignore
 	whitespace = cr-at-eol
+    pager = delta
 [push]
 	followTags = true
 	default = simple
@@ -37,3 +40,8 @@
 	helper = /Users/kris.harper/Documents/Development/Firefox/.mozbuild/git-cinnabar/git-cinnabar-helper
 [hub]
 	host = github.stoneridge.am
+[delta]
+    syntax-theme = Monokai Extended
+    navigate = true
+    line-numbers = true
+    side-by-side = true
