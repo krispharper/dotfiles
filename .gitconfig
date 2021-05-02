@@ -3,6 +3,8 @@
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     rn = log --format=format:'* %s %C(bold yellow)%d'
     b = branch -avv
+    c = checkout
+    cb = checkout -b
     tagv = tag -l -n9
     fc = !git commit -a --amend && git push -f
     up = "!bash -c 'git checkout master && git pull upstream master; \
