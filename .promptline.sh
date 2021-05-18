@@ -49,6 +49,7 @@ function __promptline_ps1 {
   [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
   # section "z" slices
   __promptline_wrapper "$CONDA_DEFAULT_ENV" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
+  __promptline_wrapper "$(echo $VIRTUAL_ENV | cut -f 8 -d"/" | cut -f 1 -d"-")" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
 
   # section "warn" header
   slice_prefix="${warn_bg}${sep}${warn_fg}${warn_bg}${space}" slice_suffix="$space${warn_sep_fg}" slice_joiner="${warn_fg}${warn_bg}${alt_sep}${space}" slice_empty_prefix="${warn_fg}${warn_bg}${space}"
@@ -202,6 +203,7 @@ function __promptline_right_prompt {
   slice_prefix="${z_sep_fg}${rsep}${z_fg}${z_bg}${space}" slice_suffix="$space${z_sep_fg}" slice_joiner="${z_fg}${z_bg}${alt_rsep}${space}" slice_empty_prefix=""
   # section "z" slices
   __promptline_wrapper "$CONDA_DEFAULT_ENV" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; }
+  __promptline_wrapper "$(echo $VIRTUAL_ENV | cut -f 8 -d"/" | cut -f 1 -d"-")" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; }
 
   # close sections
   printf "%s" "$reset"

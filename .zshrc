@@ -150,3 +150,5 @@ source ~/.promptline.sh
 export PATH=$PATH:/usr/local/bin/fzf
 export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.poetry/bin:$PATH"

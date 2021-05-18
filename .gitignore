@@ -3,3 +3,4 @@
 *.swp
 *.DS_Store
 get_rds_token.sh
+*.secrets
