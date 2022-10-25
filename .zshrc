@@ -72,6 +72,11 @@ bpython() {
     fi
 }
 
+# Java Versions
+alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v1.8)'
+alias java15='export JAVA_HOME=$(/usr/libexec/java_home -v15)'
+
+
 # Aliases
 alias ll='ls -la'
 alias tig='tig --all'
@@ -151,4 +156,9 @@ export PATH=$PATH:/usr/local/bin/fzf
 export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Set up poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# Set up pyenv
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
