@@ -157,7 +157,7 @@ export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set up poetry
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Set up pyenv
 eval "$(pyenv init --path)"

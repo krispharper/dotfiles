@@ -25,9 +25,9 @@
 	bc3 = trustExitCode
 	prompt = false
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --width 1000
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/kris.harper/.gitignore
 	whitespace = cr-at-eol
     pager = delta
 [push]
@@ -45,3 +45,5 @@
     navigate = true
     line-numbers = true
     side-by-side = true
+[init]
+	defaultBranch = master
