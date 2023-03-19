@@ -27,6 +27,9 @@ zstyle ':completion:*:directory-stack' list-colors '=(#b) #([0-9]#)*( *)==95=38;
 
 setopt interactivecomments
 
+# Add Homebrew binaries to PATH
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Completions
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
@@ -51,7 +54,7 @@ setopt interactivecomments
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # Add conda
-. /opt/conda/etc/profile.d/conda.sh
+[ -f /opt/conda/etc/profile.d/conda.sh ] && source /opt/conda/etc/profile.d/conda.sh
 
 recon() {
     CONDA_ENVIRONMENT=${1-$CONDA_DEFAULT_ENV}
